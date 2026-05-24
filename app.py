@@ -12,23 +12,6 @@ import matplotlib.pyplot as plt
 with open("random_forest_model.sav", "rb") as f:
     model = pickle.load(f)
 
-# =========================================
-# KONEKSI GOOGLE SHEET
-# =========================================
-scope = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive"
-]
-
-credentials = Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
-    scopes=scope
-)
-
-gc = gspread.authorize(credentials)
-
-# Nama Google Sheet
-sheet = gc.open("Riwayat_Prediksi_Kebugaran").sheet1
 
 # =========================================
 # FITUR INPUT
@@ -288,27 +271,6 @@ if pred_btn:
             "⚠️ Sistem ini hanya berfungsi sebagai alat bantu prediksi, "
             "bukan hasil diagnosis medis."
         )
-
-        # =========================================
-        # SIMPAN KE GOOGLE SHEET
-        # =========================================
-        row_data = [
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        ]
-
-        for feature in selected_features:
-            row_data.append(user_input[feature])
-
-        pred_int = int(prediction)
-
-        row_data.extend([
-            pred_int,
-            "FIT" if pred_int == 1 else "NOT FIT",
-            round(float(probabilities[0]) * 100, 2),
-            round(float(probabilities[1]) * 100, 2)
-        ])
-
-        sheet.append_row(row_data)
 
         # =========================================
         # VISUALISASI PROBABILITAS
