@@ -224,7 +224,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.info(
+            st.markdown(
                 """
                 <div style="
                     background-color: #ECFCFF;
@@ -257,7 +257,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.warning(
+            st.markdown(
                 """
                 <div style="
                     background-color: #FFEAEF;
