@@ -211,7 +211,7 @@ if pred_btn:
 
         if prediction == 1:
 
-            st.markdown(
+            st.info(
                 f"""
                 <h2 style='text-align:center;color:#1E90FF;'>
                 ✅ Hasil Prediksi: FIT
@@ -224,7 +224,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.markdown(
+            st.write(
                 """
                 <div style="
                     background-color: #ECFCFF;
@@ -243,7 +243,7 @@ if pred_btn:
 
         else:
 
-            st.markdown(
+            st.info(
                 f"""
                 <h2 style='text-align:center;color:#FF4500;'>
                 ⚠️ Hasil Prediksi: NOT FIT
@@ -256,7 +256,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.markdown(
+            st.write(
                 """
                 <div style="
                     background-color: #FFEAEF;
