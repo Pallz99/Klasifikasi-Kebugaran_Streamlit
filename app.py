@@ -15,9 +15,6 @@ with open("random_forest_model.sav", "rb") as f:
 with open("scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
-st.sidebar.write("Model Classes")
-st.sidebar.write(model.classes_)
-
 # =========================================
 # FITUR INPUT
 # =========================================
@@ -176,25 +173,6 @@ if pred_btn:
         prediction = model.predict(input_scaled)[0]
         probabilities = model.predict_proba(input_scaled)[0]
         
-        # =======================
-        # DEBUG (sementara)
-        # =======================
-        st.write("### DEBUG")
-        st.write("Input Data")
-        st.write(input_df)
-        
-        st.write("Input Setelah Scaling")
-        st.write(input_scaled)
-        
-        st.write("Model Classes")
-        st.write(model.classes_)
-        
-        st.write("Prediction")
-        st.write(prediction)
-        
-        st.write("Probability")
-        st.write(probabilities)
-
         # =========================================
         # DATA YANG DIINPUT
         # =========================================
