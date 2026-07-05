@@ -233,7 +233,7 @@ if pred_btn:
                     border-left: 6px solid #72E4F9;
                     margin-top: 16px;">
                     
-                    🏃 <strong>Rekomendasi Sistem:</strong><br>
+                    🏃 **Rekomendasi Sistem:**
                     Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat,
                     aktivitas fisik rutin, dan pola makan seimbang.
                 </div>
@@ -265,7 +265,7 @@ if pred_btn:
                     border-left: 6px solid #FF7497;
                     margin-top: 16px;">
                     
-                    💡 <strong>Rekomendasi Sistem:</strong><br>
+                    💡 **Rekomendasi Sistem:**
                     Disarankan meningkatkan aktivitas fisik, menjaga pola makan,
                     serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh.
                 </div>
