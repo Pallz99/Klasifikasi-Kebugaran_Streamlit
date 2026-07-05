@@ -7,11 +7,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # =========================================
-# LOAD MODEL
+# LOAD MODEL & SCALER
 # =========================================
 with open("random_forest_model.sav", "rb") as f:
     model = pickle.load(f)
 
+with open("scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)
+
+st.sidebar.write("Model Classes")
+st.sidebar.write(model.classes_)
 
 # =========================================
 # FITUR INPUT
@@ -158,14 +163,37 @@ if pred_btn:
         st.warning("⚠️ Harap isi semua data terlebih dahulu.")
 
     else:
-
+        # Membuat dataframe dari input pengguna
         input_df = pd.DataFrame(
             [user_input],
             columns=selected_features
         )
-
-        prediction = model.predict(input_df)[0]
-        probabilities = model.predict_proba(input_df)[0]
+        
+        # Scaling data sesuai proses training
+        input_scaled = scaler.transform(input_df)
+        
+        # Prediksi menggunakan data yang sudah discale
+        prediction = model.predict(input_scaled)[0]
+        probabilities = model.predict_proba(input_scaled)[0]
+        
+        # =======================
+        # DEBUG (sementara)
+        # =======================
+        st.write("### DEBUG")
+        st.write("Input Data")
+        st.write(input_df)
+        
+        st.write("Input Setelah Scaling")
+        st.write(input_scaled)
+        
+        st.write("Model Classes")
+        st.write(model.classes_)
+        
+        st.write("Prediction")
+        st.write(prediction)
+        
+        st.write("Probability")
+        st.write(probabilities)
 
         # =========================================
         # DATA YANG DIINPUT
