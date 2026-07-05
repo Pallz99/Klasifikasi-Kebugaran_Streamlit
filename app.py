@@ -224,7 +224,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.write(
+            st.markdown(
                 """
                 <div style="
                     background-color: #ECFCFF;
@@ -233,7 +233,7 @@ if pred_btn:
                     border-left: 6px solid #72E4F9;
                     margin-top: 16px;">
                     
-                    🏃 **Rekomendasi Sistem:**
+                    🏃 <strong>Rekomendasi Sistem:</strong><br><br>
                     Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat,
                     aktivitas fisik rutin, dan pola makan seimbang.
                 </div>
@@ -256,7 +256,7 @@ if pred_btn:
                 unsafe_allow_html=True
             )
 
-            st.write(
+            st.markdown(
                 """
                 <div style="
                     background-color: #FFEAEF;
@@ -265,7 +265,7 @@ if pred_btn:
                     border-left: 6px solid #FF7497;
                     margin-top: 16px;">
                     
-                    💡 **Rekomendasi Sistem:**
+                    💡 <strong>Rekomendasi Sistem:</strong><br><br>
                     Disarankan meningkatkan aktivitas fisik, menjaga pola makan,
                     serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh.
                 </div>
