@@ -37,7 +37,6 @@ selected_features = [
 st.title("🏃 Prediksi Tingkat Kebugaran")
 st.write("Masukkan data kesehatan berikut untuk melakukan prediksi tingkat kebugaran.")
 st.caption("⚠️ Gunakan tanda titik (.) untuk angka desimal.")
-st.write(st.__version__)
 
 # =========================================
 # INFORMASI INPUT
