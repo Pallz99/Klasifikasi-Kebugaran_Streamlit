@@ -37,14 +37,7 @@ selected_features = [
 st.title("🏃 Prediksi Tingkat Kebugaran")
 st.write("Masukkan data kesehatan berikut untuk melakukan prediksi tingkat kebugaran.")
 st.caption("⚠️ Gunakan tanda titik (.) untuk angka desimal.")
-st.markdown(
-    """
-    <h2 style="color:red;">TEST HTML</h2>
-    <b>Ini harus tebal</b><br>
-    Ini harus pindah baris.
-    """,
-    unsafe_allow_html=True
-)
+st.write(st.__version__)
 
 # =========================================
 # INFORMASI INPUT
