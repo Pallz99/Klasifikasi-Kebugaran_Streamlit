@@ -208,73 +208,39 @@ if pred_btn:
         # HASIL PREDIKSI
         # =========================================
         st.markdown("---")
-
+        
         if prediction == 1:
-
-            st.markdown(
-                f"""
-                <h2 style='text-align:center;color:#1E90FF;'>
-                ✅ Hasil Prediksi: FIT
-                </h2>
-
-                <h3 style='text-align:center;'>
-                Probabilitas: {probabilities[1]:.2%}
-                </h3>
-                """,
-                unsafe_allow_html=True
+        
+            st.success("✅ Hasil Prediksi: FIT")
+        
+            st.metric(
+                label="Probabilitas FIT",
+                value=f"{probabilities[1]:.2%}"
             )
-
-            st.markdown(
-                """
-                <div style="
-                    background-color: #ECFCFF;
-                    padding: 16px;
-                    border-radius: 10px;
-                    border-left: 6px solid #72E4F9;
-                    margin-top: 16px;">
-                    
-                    🏃 <strong>Rekomendasi Sistem:</strong><br><br>
-                    
-                    Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat,
-                    aktivitas fisik rutin, dan pola makan seimbang.
-                </div>
-                """,
-                unsafe_allow_html=True
+        
+            st.info("🏃 Rekomendasi Sistem")
+        
+            st.write(
+                "Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat, "
+                "aktivitas fisik rutin, dan pola makan seimbang."
             )
-
+        
         else:
-
-            st.markdown(
-                f"""
-                <h2 style='text-align:center;color:#FF4500;'>
-                ⚠️ Hasil Prediksi: NOT FIT
-                </h2>
-
-                <h3 style='text-align:center;'>
-                Probabilitas: {probabilities[0]:.2%}
-                </h3>
-                """,
-                unsafe_allow_html=True
+        
+            st.error("⚠️ Hasil Prediksi: NOT FIT")
+        
+            st.metric(
+                label="Probabilitas NOT FIT",
+                value=f"{probabilities[0]:.2%}"
             )
-
-            st.markdown(
-                """
-                <div style="
-                    background-color: #FFEAEF;
-                    padding: 16px;
-                    border-radius: 10px;
-                    border-left: 6px solid #FF7497;
-                    margin-top: 16px;">
-                    
-                    💡 <strong>Rekomendasi Sistem:</strong><br><br>
-                    Disarankan meningkatkan aktivitas fisik, menjaga pola makan,
-                    serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh.
-                    
-                </div>
-                """,
-                unsafe_allow_html=True
+        
+            st.warning("💡 Rekomendasi Sistem")
+        
+            st.write(
+                "Disarankan meningkatkan aktivitas fisik, menjaga pola makan, "
+                "serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh."
             )
-
+        
         st.caption(
             "⚠️ Sistem ini hanya berfungsi sebagai alat bantu prediksi, "
             "bukan hasil diagnosis medis."
