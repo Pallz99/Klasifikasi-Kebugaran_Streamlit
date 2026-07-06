@@ -228,20 +228,13 @@ if pred_btn:
 
             st.markdown(
                 """
-                <div style="
-                    background-color: #ECFCFF;
-                    padding: 16px;
-                    border-radius: 10px;
-                    border-left: 6px solid #72E4F9;
-                    margin-top: 16px;">
-                    
-                    🏃 <strong>Rekomendasi Sistem:</strong><br><br>
-                    
-                    Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat,
-                    aktivitas fisik rutin, dan pola makan seimbang.
-                </div>
-                """,
-                unsafe_allow_html=True
+            <div style="background-color:#FFEAEF;padding:16px;border-radius:10px;border-left:6px solid #FF7497;color:#333333;">
+            🏃 <b>Rekomendasi Sistem:</b><br>
+            Kondisi kebugaran tergolong baik. Tetap jaga pola hidup sehat,
+            aktivitas fisik rutin, dan pola makan seimbang.
+            </div>
+            """,
+                unsafe_allow_html=True,
             )
 
         else:
