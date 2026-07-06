@@ -46,23 +46,23 @@ st.write(st.__version__)
 feature_info = {
     "age": {
         "desc": "Masukkan usia",
-        "range": "Contoh: 18 - 60 tahun"
+        "range": "Contoh: 18 - 79 tahun"
     },
     "height_cm": {
         "desc": "Masukkan tinggi badan",
-        "range": "Contoh: 150 - 190 cm"
+        "range": "Contoh: 150 - 199 cm"
     },
     "weight_kg": {
         "desc": "Masukkan berat badan",
-        "range": "Contoh: 40 - 120 kg"
+        "range": "Contoh: 40 - 180 kg"
     },
     "heart_rate": {
         "desc": "Masukkan detak jantung",
-        "range": "Contoh: 60 - 120 bpm"
+        "range": "Contoh: 45 - 120 bpm"
     },
     "blood_pressure": {
         "desc": "Masukkan tekanan darah",
-        "range": "Contoh: 80 - 180"
+        "range": "Contoh: 90 - 180"
     },
     "sleep_hours": {
         "desc": "Masukkan rata-rata jam tidur",
@@ -74,7 +74,7 @@ feature_info = {
     },
     "activity_index": {
         "desc": "Masukkan indeks aktivitas fisik",
-        "range": "Contoh: 1 - 10"
+        "range": "Contoh: 1 - 5"
     },
     "smokes": {
         "desc": "Apakah merokok",
@@ -84,6 +84,20 @@ feature_info = {
         "desc": "Jenis kelamin",
         "range": "Pilih: Perempuan (0) / Laki-laki (1)"
     }
+}
+
+# =========================================
+# VALIDASI RENTANG DATA TRAINING
+# =========================================
+valid_range = {
+    "age": (18, 79),
+    "height_cm": (150, 199),
+    "weight_kg": (40, 180),
+    "heart_rate": (45, 120),
+    "blood_pressure": (90, 180),
+    "sleep_hours": (4, 10),
+    "nutrition_quality": (1, 10),
+    "activity_index": (1, 5)
 }
 
 # =========================================
@@ -162,16 +176,52 @@ if pred_btn:
         st.warning("⚠️ Harap isi semua data terlebih dahulu.")
 
     else:
-        # Membuat dataframe dari input pengguna
+    
+        # =========================================
+        # VALIDASI RENTANG INPUT
+        # =========================================
+        errors = []
+    
+        for feature, (min_value, max_value) in valid_range.items():
+    
+            value = user_input[feature]
+    
+            if value < min_value or value > max_value:
+                errors.append(
+                    f"• {feature} harus berada pada rentang {min_value} - {max_value}"
+                )
+    
+        if errors:
+    
+            st.error("❌ Prediksi tidak dapat dilakukan.")
+    
+            st.warning("""
+    Data yang dimasukkan berada di luar rentang data yang digunakan saat pelatihan model.
+    
+    Silakan perbaiki nilai berikut:
+    """)
+    
+            for err in errors:
+                st.write(err)
+    
+            st.info(
+                "Model hanya dapat melakukan prediksi pada data yang masih berada dalam rentang data pelatihan sehingga hasil prediksi tetap valid."
+            )
+    
+            st.stop()
+    
+        # =========================================
+        # MEMBUAT DATAFRAME
+        # =========================================
         input_df = pd.DataFrame(
             [user_input],
             columns=selected_features
         )
-        
-        # Scaling data sesuai proses training
+    
+        # Scaling data
         input_scaled = scaler.transform(input_df)
-        
-        # Prediksi menggunakan data yang sudah discale
+    
+        # Prediksi
         prediction = model.predict(input_scaled)[0]
         probabilities = model.predict_proba(input_scaled)[0]
         
