@@ -2,7 +2,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
 import streamlit as st
-st.write(st.__version__)
 import pickle
 import pandas as pd
 import matplotlib.pyplot as plt
