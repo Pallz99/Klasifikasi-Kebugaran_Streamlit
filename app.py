@@ -261,20 +261,13 @@ if pred_btn:
 
             st.markdown(
                 """
-                <div style="
-                    background-color: #FFEAEF;
-                    padding: 16px;
-                    border-radius: 10px;
-                    border-left: 6px solid #FF7497;
-                    margin-top: 16px;">
-                    
-                    💡 <strong>Rekomendasi Sistem:</strong><br><br>
-                    Disarankan meningkatkan aktivitas fisik, menjaga pola makan,
-                    serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh.
-                    
-                </div>
-                """,
-                unsafe_allow_html=True
+            <div style="background-color:#FFEAEF;padding:16px;border-radius:10px;border-left:6px solid #FF7497;">
+            💡 <b>Rekomendasi Sistem:</b><br>
+            Disarankan meningkatkan aktivitas fisik, menjaga pola makan,
+            serta memperbaiki kualitas tidur untuk meningkatkan kebugaran tubuh.
+            </div>
+            """,
+                unsafe_allow_html=True,
             )
 
         st.caption(
